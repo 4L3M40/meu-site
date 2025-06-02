@@ -6,8 +6,8 @@ btnMensagem.addEventListener("click", () => {
 });
 
 btnTema.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    if (document.body.classList.contains("dark-mode")) {
+    document.body.classList.toggle("modo-escuro");
+    if (document.body.classList.contains("modo-escuro")) {
         btnTema.innerText = "Desativar modo escuro";
     } else {
         btnTema.innerText = "Ativar modo escuro";
