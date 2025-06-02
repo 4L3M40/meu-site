@@ -42,27 +42,28 @@ footer {
 }
 
 /* Tema escuro */
-body.dark-mode {
+body.modo-escuro {
     background-color: #121212;
     color: #eee;
 }
 
-body.dark-mode header {
+body.modo-escuro header {
     background-color: #1f1f1f;
 }
 
-body.dark-mode button {
+body.modo-escuro button {
     background-color: #333;
     color: #eee;
 }
 
-body.dark-mode button:hover {
+body.modo-escuro button:hover {
     background-color: #555;
 }
 
-body.dark-mode footer {
+body.modo-escuro footer {
     background-color: #1f1f1f;
 }
+
 .galeria {
     display: flex;
     flex-wrap: wrap;
@@ -75,7 +76,7 @@ body.dark-mode footer {
     height: auto;
     cursor: pointer;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
