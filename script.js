@@ -1,19 +1,35 @@
-// Seleciona os elementos do DOM
-const btnMensagem = document.getElementById("btnMensagem");
-const btnTema = document.getElementById("btnTema");
-const mensagem = document.getElementById("mensagem");
+// Validação do formulário
+const form = document.getElementById("formContato");
 
-// Evento: altera o texto do parágrafo quando o botão é clicado
-btnMensagem.addEventListener("click", () => {
-    mensagem.textContent = "Você clicou no botão! 😎";
-});
+form.addEventListener("submit", function (e) {
+    let valido = true;
 
-// Evento: alterna entre modo claro e escuro
-btnTema.addEventListener("click", () => {
-    const escuroAtivo = document.body.classList.toggle("modo-escuro");
+    // Seleciona os campos
+    const nome = document.getElementById("nome");
+    const email = document.getElementById("email");
+    const mensagem = document.getElementById("mensagemContato");
 
-    // Altera o texto do botão dependendo do modo
-    btnTema.textContent = escuroAtivo
-        ? "Desativar modo escuro"
-        : "Ativar modo escuro";
+    // Limpa erros anteriores
+    [nome, email, mensagem].forEach(el => el.classList.remove("erro"));
+
+    // Verifica campos
+    if (nome.value.trim() === "") {
+        nome.classList.add("erro");
+        valido = false;
+    }
+
+    if (!email.value.includes("@") || email.value.trim() === "") {
+        email.classList.add("erro");
+        valido = false;
+    }
+
+    if (mensagem.value.trim().length < 5) {
+        mensagem.classList.add("erro");
+        valido = false;
+    }
+
+    if (!valido) {
+        e.preventDefault(); // Impede o envio
+        alert("Por favor, preencha todos os campos corretamente.");
+    }
 });
