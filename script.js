@@ -1,18 +1,15 @@
-// Validação do formulário
 const form = document.getElementById("formContato");
+const msgSucesso = document.getElementById("mensagemSucesso");
 
 form.addEventListener("submit", function (e) {
     let valido = true;
 
-    // Seleciona os campos
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
     const mensagem = document.getElementById("mensagemContato");
 
-    // Limpa erros anteriores
     [nome, email, mensagem].forEach(el => el.classList.remove("erro"));
 
-    // Verifica campos
     if (nome.value.trim() === "") {
         nome.classList.add("erro");
         valido = false;
@@ -29,7 +26,11 @@ form.addEventListener("submit", function (e) {
     }
 
     if (!valido) {
-        e.preventDefault(); // Impede o envio
+        e.preventDefault();
         alert("Por favor, preencha todos os campos corretamente.");
+    } else {
+        // Mostra mensagem de sucesso após envio
+        form.style.display = "none"; // Esconde o formulário
+        msgSucesso.style.display = "block"; // Mostra mensagem
     }
 });
