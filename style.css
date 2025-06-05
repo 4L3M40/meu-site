@@ -1,158 +1,220 @@
-/* Reset e configurações básicas */
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #f8f9fa;
+  --text-color: #2b2d42;
+  --white: #ffffff;
+  --gray: #adb5bd;
+  --dark-gray: #495057;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e0f2f1;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-main {
-  flex: 1;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3a56d4;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.hero-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--white);
+  border-radius: 10px;
+  margin: 40px 0;
+}
+
+.hero-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Formulário de Contato */
+#formularioContato {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.btn-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group label {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: var(--dark-gray);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  background-color: var(--white);
+  padding: 0 5px;
+  color: var(--primary-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* Modal de Login */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  z-index: 1000;
 }
 
-/* Layout das seções */
-section {
-  background: white;
-  padding: 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+.modal-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
   max-width: 400px;
-  width: 100%;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
-h2 {
-  margin-top: 0;
-  color: #00796b;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-/* Texto da tela antiga */
-#telaAntiga p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* Botões gerais */
-button {
-  display: inline-block;
-  width: 100%;
-  padding: 12px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: white;
-  background-color: #00796b;
-  border: none;
-  border-radius: 30px;
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,121,107,0.4);
 }
 
-button:hover {
-  background-color: #004d40;
-  box-shadow: 0 6px 15px rgba(0,77,64,0.6);
-}
-
-/* Formulário */
-form {
+.form-options {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 2px solid #b2dfdb;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-  resize: vertical;
-  min-height: 40px;
+.remember-me {
+  display: flex;
+  align-items: center;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #00796b;
-  outline: none;
-  box-shadow: 0 0 8px #00796baa;
+.remember-me input {
+  margin-right: 8px;
 }
 
-/* Estilo quando o campo está inválido */
-.erro {
-  border-color: #d32f2f !important;
-  box-shadow: 0 0 8px #d32f2faa !important;
+.forgot-password {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
 }
 
-/* Mensagem de sucesso */
-#mensagemSucesso {
-  color: #2e7d32;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 1.2rem;
+.forgot-password:hover {
+  text-decoration: underline;
 }
 
-/* Botão de voltar */
-#voltarTelaAntiga {
-  margin-top: 1.5rem;
-  background-color: #cfd8dc;
-  color: #37474f;
-  box-shadow: none;
-}
-
-#voltarTelaAntiga:hover {
-  background-color: #b0bec5;
-  color: #263238;
-}
-
-/* Modo escuro */
-body.modo-escuro {
-  background-color: #121212;
-  color: #eee;
-}
-
-body.modo-escuro section {
-  background: #1f1f1f;
-  box-shadow: 0 6px 15px rgba(255,255,255,0.05);
-}
-
-body.modo-escuro button {
-  background-color: #333;
-  color: #eee;
-  box-shadow: none;
-}
-
-body.modo-escuro button:hover {
-  background-color: #555;
-  box-shadow: none;
-}
-
-body.modo-escuro input,
-body.modo-escuro textarea {
-  background-color: #2c2c2c;
-  border-color: #555;
-  color: #eee;
-}
-
-body.modo-escuro input:focus,
-body.modo-escuro textarea:focus {
-  border-color: #80cbc4;
-  box-shadow: 0 0 8px #80cbc4aa;
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-section h2 {
+    font-size: 2rem;
+  }
+  
+  .hero-section {
+    padding: 60px 20px;
+  }
 }
