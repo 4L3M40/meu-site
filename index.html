@@ -3,45 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Site Moderno</title>
+  <title>Meu Site Profissional</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <!-- Tela inicial -->
-    <section id="telaAntiga">
-      <h2>Bem-vindo ao meu site!</h2>
+  <header>
+    <div class="container">
+      <h1>Meu Site</h1>
+      <nav>
+        <button id="btnLogin">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Seção Hero -->
+    <section class="hero-section">
+      <h2>Bem-vindo ao meu site profissional!</h2>
       <p>Quer entrar em contato? Clique no botão abaixo.</p>
-      <button id="abrirFormulario">Quero entrar em contato</button>
+      <button id="abrirFormulario" class="btn-primary">Quero entrar em contato</button>
     </section>
 
-    <!-- Formulário escondido inicialmente -->
-    <section id="formularioContato" style="display: none;">
-      <h2>Entre em contato</h2>
+    <!-- Formulário de Contato -->
+    <section id="formularioContato" class="hidden">
+      <div class="form-header">
+        <button id="voltarTelaAntiga" class="btn-back">← Voltar</button>
+        <h2>Entre em contato</h2>
+      </div>
+      
       <form id="formContato" action="https://formsubmit.co/evandrobch@hotmail.com" method="POST">
-        <!-- Campo oculto para desativar o CAPTCHA do FormSubmit -->
         <input type="hidden" name="_captcha" value="false" />
-
-        <!-- Campos do formulário -->
-        <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" id="email" placeholder="Seu e-mail" required />
-        <textarea name="mensagem" id="mensagemContato" placeholder="Sua mensagem" required></textarea>
-
-        <!-- Botão de envio -->
-        <button type="submit">Enviar mensagem</button>
+        
+        <div class="form-group">
+          <input type="text" name="nome" id="nome" placeholder=" " required />
+          <label for="nome">Seu nome</label>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" name="email" id="email" placeholder=" " required />
+          <label for="email">Seu e-mail</label>
+        </div>
+        
+        <div class="form-group">
+          <textarea name="mensagem" id="mensagemContato" placeholder=" " required></textarea>
+          <label for="mensagemContato">Sua mensagem</label>
+        </div>
+        
+        <button type="submit" class="btn-primary">Enviar mensagem</button>
       </form>
 
-      <!-- Mensagem de sucesso (mostrada via JS) -->
-      <div id="mensagemSucesso" style="display: none;">
+      <div id="mensagemSucesso" class="hidden">
         Sua mensagem foi enviada com sucesso! 🎉
       </div>
-
-      <!-- Botão para voltar à tela inicial -->
-      <button id="voltarTelaAntiga">Voltar</button>
     </section>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>LOG IN</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <input type="text" id="username" placeholder=" " required />
+            <label for="username">Username</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="password" id="password" placeholder=" " required />
+            <label for="password">Password</label>
+          </div>
+          
+          <div class="form-options">
+            <div class="remember-me">
+              <input type="checkbox" id="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+          
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
   </main>
 
-  <!-- Script JS separado -->
   <script src="script.js"></script>
 </body>
 </html>
