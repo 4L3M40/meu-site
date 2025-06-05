@@ -9,7 +9,7 @@ Este é um projeto simples de site pessoal feito com **HTML**, **CSS** e **JavaS
 
 ## 📸 Preview
 
-![preview do site](screenshot.png) <!-- substitua com um print do site se quiser -->
+> ![Image](https://github.com/user-attachments/assets/b278ca91-31b7-4b16-8323-bfed08599a48)
 
 ---
 
