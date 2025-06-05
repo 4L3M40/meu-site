@@ -2,12 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Meu Site Simples</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Site Moderno</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
-    <!-- Tela antiga -->
+    <!-- Tela inicial -->
     <section id="telaAntiga">
       <h2>Bem-vindo ao meu site!</h2>
       <p>Quer entrar em contato? Clique no botão abaixo.</p>
@@ -15,22 +16,32 @@
     </section>
 
     <!-- Formulário escondido inicialmente -->
-    <section id="formularioContato" style="display:none;">
+    <section id="formularioContato" style="display: none;">
       <h2>Entre em contato</h2>
       <form id="formContato" action="https://formsubmit.co/evandrobch@hotmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
+        <!-- Campo oculto para desativar o CAPTCHA do FormSubmit -->
+        <input type="hidden" name="_captcha" value="false" />
+
+        <!-- Campos do formulário -->
         <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
         <input type="email" name="email" id="email" placeholder="Seu e-mail" required />
         <textarea name="mensagem" id="mensagemContato" placeholder="Sua mensagem" required></textarea>
+
+        <!-- Botão de envio -->
         <button type="submit">Enviar mensagem</button>
       </form>
-      <div id="mensagemSucesso" style="display:none; color:green; font-weight:bold; margin-top:1em;">
+
+      <!-- Mensagem de sucesso (mostrada via JS) -->
+      <div id="mensagemSucesso" style="display: none;">
         Sua mensagem foi enviada com sucesso! 🎉
       </div>
-      <button id="voltarTelaAntiga" style="margin-top: 1em;">Voltar</button>
+
+      <!-- Botão para voltar à tela inicial -->
+      <button id="voltarTelaAntiga">Voltar</button>
     </section>
   </main>
 
+  <!-- Script JS separado -->
   <script src="script.js"></script>
 </body>
 </html>
