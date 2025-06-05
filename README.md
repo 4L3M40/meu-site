@@ -31,3 +31,45 @@ Este é um projeto simples de site pessoal feito com **HTML**, **CSS** e **JavaS
 ├── style.css          # Estilos do site
 ├── script.js          # Lógica em JavaScript
 └── README.md          # Este arquivo
+```
+---
+
+## ✉️ Como funciona o envio do formulário?
+O formulário usa o serviço gratuito FormSubmit para enviar mensagens diretamente para o seu e-mail.
+
+---
+
+## ⚙️ Configuração
+
+Altere o atributo `action` do formulário para o seu e-mail, no formato:
+
+```html
+<form action="https://formsubmit.co/seu-email@email.com" method="POST">
+```
+---
+
+## 🖥️ Como rodar localmente
+Baixe ou clone o repositório:
+
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/meu-site.git
+Abra o arquivo index.html em qualquer navegador moderno.
+
+---
+
+## 🌐 Como hospedar no GitHub Pages
+Suba este repositório no GitHub.
+
+Vá em Settings > Pages.
+
+Selecione a branch principal (main ou master) e a pasta /root.
+
+Seu site ficará disponível em:
+https://seu-usuario.github.io/meu-site/
+
+---
+
+## 📝 Licença
+Este projeto é livre para uso pessoal ou educacional. 🚀
