@@ -1,44 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Site Simples</title>
-    
-    <!-- Importação do CSS -->
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Bem-vindo ao meu site!</h1>
-    </header>
-
-    <!-- Conteúdo principal -->
-    <main>
-        <!-- Parágrafo que muda com clique no botão -->
-        <p id="mensagem">Clique no botão para mudar a mensagem:</p>
-        <button id="btnMensagem">Clique aqui</button>
+<!-- Formulário de Contato -->
+<section class="contato">
+    <h2>Entre em contato</h2>
+    <form id="formContato" action="https://formsubmit.co/evandrobch@hotmail.com" method="POST">
+        <!-- Campo oculto para desabilitar CAPTCHA do FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
         
-        <br /><br />
-        
-        <!-- Botão para alternar o tema -->
-        <button id="btnTema">Ativar modo escuro</button>
-        
-        <br /><br />
+        <!-- Campos -->
+        <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" id="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" id="mensagemContato" placeholder="Sua mensagem" required></textarea>
 
-        <!-- Galeria de imagem -->
-        <div class="galeria">
-            <img src="20250227_200324.jpg" alt="Imagem da galeria" />
-        </div>
-    </main>
-
-    <!-- Rodapé fixo -->
-    <footer>
-        <p>Feito por Evandro 🚀</p>
-    </footer>
-
-    <!-- Importação do JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Botão -->
+        <button type="submit">Enviar mensagem</button>
+    </form>
+</section>
