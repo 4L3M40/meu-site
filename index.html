@@ -1,198 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site Simples</title>
-  <style>
-    :root {
-      --primary: #2563eb;
-      --secondary: #f8fafc;
-      --text: #1e293b;
-      --light-gray: #e2e8f0;
-    }
-    
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: var(--secondary);
-    }
-    
-    h1, h2 {
-      color: var(--primary);
-    }
-    
-    button, .btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      margin: 10px 0;
-      display: inline-block;
-      text-decoration: none;
-    }
-    
-    button:hover, .btn:hover {
-      opacity: 0.9;
-    }
-    
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid var(--light-gray);
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    
-    .container {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin: 20px 0;
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    .form-group {
-      margin-bottom: 15px;
-    }
-    
-    .options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .forgot-password {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Site Moderno</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Menu Site</h1>
-  </header>
-
   <main>
     <!-- Tela inicial -->
-    <section id="home" class="container">
-      <h2>Bem-vindo ao meu site profissional!</h2>
+    <section id="telaAntiga">
+      <h2>Bem-vindo ao meu site!</h2>
       <p>Quer entrar em contato? Clique no botão abaixo.</p>
-      <button id="show-contact">Quero entrar em contato</button>
-      <button id="show-login" class="btn">Login</button>
+      <button id="abrirFormulario">Quero entrar em contato</button>
     </section>
 
-    <!-- Formulário de contato -->
-    <section id="contact" class="container hidden">
-      <button id="back-from-contact" class="btn">← Voltar</button>
+    <!-- Formulário escondido inicialmente -->
+    <section id="formularioContato" style="display: none;">
       <h2>Entre em contato</h2>
-      
-      <form id="contact-form">
-        <div class="form-group">
-          <input type="text" placeholder="Seu nome" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="email" placeholder="Seu email" required>
-        </div>
-        
-        <div class="form-group">
-          <textarea placeholder="Sua mensagem" required></textarea>
-        </div>
-        
+      <form id="formContato" action="https://formsubmit.co/evandrobch@hotmail.com" method="POST">
+        <!-- Campo oculto para desativar o CAPTCHA do FormSubmit -->
+        <input type="hidden" name="_captcha" value="false" />
+
+        <!-- Campos do formulário -->
+        <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
+        <input type="email" name="email" id="email" placeholder="Seu e-mail" required />
+        <textarea name="mensagem" id="mensagemContato" placeholder="Sua mensagem" required></textarea>
+
+        <!-- Botão de envio -->
         <button type="submit">Enviar mensagem</button>
       </form>
-      
-      <div id="success-message" class="hidden">
-        <p>Sua mensagem foi enviada com sucesso!</p>
-      </div>
-    </section>
 
-    <!-- Formulário de login -->
-    <section id="login" class="container hidden">
-      <button id="back-from-login" class="btn">← Voltar</button>
-      <h2>LOG IN</h2>
-      
-      <form id="login-form">
-        <div class="form-group">
-          <input type="text" placeholder="Username" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="password" placeholder="Password" required>
-        </div>
-        
-        <div class="options">
-          <div>
-            <input type="checkbox" id="remember">
-            <label for="remember">Remember me</label>
-          </div>
-          <a href="#" class="forgot-password">Forgot password?</a>
-        </div>
-        
-        <button type="submit">Login</button>
-      </form>
+      <!-- Mensagem de sucesso (mostrada via JS) -->
+      <div id="mensagemSucesso" style="display: none;">
+        Sua mensagem foi enviada com sucesso! 🎉
+      </div>
+
+      <!-- Botão para voltar à tela inicial -->
+      <button id="voltarTelaAntiga">Voltar</button>
     </section>
   </main>
 
-  <script>
-    // Navegação entre seções
-    document.getElementById('show-contact').addEventListener('click', () => {
-      document.getElementById('home').classList.add('hidden');
-      document.getElementById('contact').classList.remove('hidden');
-    });
-
-    document.getElementById('show-login').addEventListener('click', () => {
-      document.getElementById('home').classList.add('hidden');
-      document.getElementById('login').classList.remove('hidden');
-    });
-
-    document.getElementById('back-from-contact').addEventListener('click', () => {
-      document.getElementById('contact').classList.add('hidden');
-      document.getElementById('home').classList.remove('hidden');
-    });
-
-    document.getElementById('back-from-login').addEventListener('click', () => {
-      document.getElementById('login').classList.add('hidden');
-      document.getElementById('home').classList.remove('hidden');
-    });
-
-    // Simulação de envio do formulário de contato
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('contact-form').classList.add('hidden');
-      document.getElementById('success-message').classList.remove('hidden');
-      
-      setTimeout(() => {
-        document.getElementById('contact').classList.add('hidden');
-        document.getElementById('home').classList.remove('hidden');
-        document.getElementById('contact-form').classList.remove('hidden');
-        document.getElementById('success-message').classList.add('hidden');
-        document.getElementById('contact-form').reset();
-      }, 3000);
-    });
-
-    // Simulação de login
-    document.getElementById('login-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Login realizado com sucesso!');
-      document.getElementById('login').classList.add('hidden');
-      document.getElementById('home').classList.remove('hidden');
-      document.getElementById('login-form').reset();
-    });
-  </script>
+  <!-- Script JS separado -->
+  <script src="script.js"></script>
 </body>
 </html>
