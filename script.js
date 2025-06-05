@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Todo seu código JS aqui dentro
-
-  // Botões
+  // Pega os elementos do DOM
   const btnAbrirForm = document.getElementById("abrirFormulario");
   const btnVoltar = document.getElementById("voltarTelaAntiga");
   const telaAntiga = document.getElementById("telaAntiga");
@@ -9,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const msgSucesso = document.getElementById("mensagemSucesso");
   const form = document.getElementById("formContato");
 
+  // Quando clicar no botão "Quero entrar em contato"
   btnAbrirForm.addEventListener("click", () => {
     telaAntiga.style.display = "none";
     formularioContato.style.display = "block";
@@ -17,11 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
   });
 
+  // Botão "Voltar"
   btnVoltar.addEventListener("click", () => {
     formularioContato.style.display = "none";
     telaAntiga.style.display = "block";
   });
 
+  // Validação e envio do formulário
   form.addEventListener("submit", function (e) {
     let valido = true;
 
@@ -50,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       alert("Por favor, preencha todos os campos corretamente.");
     } else {
-      e.preventDefault(); // Evita recarregar a página pra teste (retire depois pra enviar mesmo)
+      // Para testes, evita o reload e mostra mensagem
+      e.preventDefault();
       form.style.display = "none";
       msgSucesso.style.display = "block";
     }
