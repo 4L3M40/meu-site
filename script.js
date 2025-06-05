@@ -1,60 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Pega os elementos do DOM
-  const btnAbrirForm = document.getElementById("abrirFormulario");
-  const btnVoltar = document.getElementById("voltarTelaAntiga");
-  const telaAntiga = document.getElementById("telaAntiga");
-  const formularioContato = document.getElementById("formularioContato");
-  const msgSucesso = document.getElementById("mensagemSucesso");
-  const form = document.getElementById("formContato");
+// Referências aos elementos da interface
+const telaAntiga = document.getElementById("telaAntiga");
+const formularioContato = document.getElementById("formularioContato");
+const abrirFormulario = document.getElementById("abrirFormulario");
+const voltarTelaAntiga = document.getElementById("voltarTelaAntiga");
+const formContato = document.getElementById("formContato");
+const mensagemSucesso = document.getElementById("mensagemSucesso");
 
-  // Quando clicar no botão "Quero entrar em contato"
-  btnAbrirForm.addEventListener("click", () => {
-    telaAntiga.style.display = "none";
-    formularioContato.style.display = "block";
-    msgSucesso.style.display = "none";
-    form.style.display = "block";
-    form.reset();
-  });
+// Abre o formulário e esconde a tela antiga
+abrirFormulario.addEventListener("click", () => {
+  telaAntiga.style.display = "none";
+  formularioContato.style.display = "block";
+});
 
-  // Botão "Voltar"
-  btnVoltar.addEventListener("click", () => {
-    formularioContato.style.display = "none";
-    telaAntiga.style.display = "block";
-  });
+// Volta para a tela antiga
+voltarTelaAntiga.addEventListener("click", () => {
+  formularioContato.style.display = "none";
+  telaAntiga.style.display = "block";
+  mensagemSucesso.style.display = "none";
+  formContato.reset(); // limpa os campos
+});
 
-  // Validação e envio do formulário
-  form.addEventListener("submit", function (e) {
-    let valido = true;
+// Validação básica antes de enviar
+formContato.addEventListener("submit", (e) => {
+  const nome = document.getElementById("nome");
+  const email = document.getElementById("email");
+  const mensagem = document.getElementById("mensagemContato");
 
-    const nome = document.getElementById("nome");
-    const email = document.getElementById("email");
-    const mensagem = document.getElementById("mensagemContato");
+  // Remove classes de erro anteriores
+  [nome, email, mensagem].forEach((campo) => campo.classList.remove("erro"));
 
-    [nome, email, mensagem].forEach(el => el.classList.remove("erro"));
+  let valido = true;
 
-    if (nome.value.trim() === "") {
-      nome.classList.add("erro");
-      valido = false;
-    }
+  if (nome.value.trim() === "") {
+    nome.classList.add("erro");
+    valido = false;
+  }
 
-    if (!email.value.includes("@") || email.value.trim() === "") {
-      email.classList.add("erro");
-      valido = false;
-    }
+  if (!email.value.includes("@") || email.value.trim() === "") {
+    email.classList.add("erro");
+    valido = false;
+  }
 
-    if (mensagem.value.trim().length < 5) {
-      mensagem.classList.add("erro");
-      valido = false;
-    }
+  if (mensagem.value.trim().length < 5) {
+    mensagem.classList.add("erro");
+    valido = false;
+  }
 
-    if (!valido) {
-      e.preventDefault();
-      alert("Por favor, preencha todos os campos corretamente.");
-    } else {
-      // Para testes, evita o reload e mostra mensagem
-      e.preventDefault();
-      form.style.display = "none";
-      msgSucesso.style.display = "block";
-    }
-  });
+  if (!valido) {
+    e.preventDefault(); // impede o envio se inválido
+    alert("Por favor, preencha todos os campos corretamente.");
+  } else {
+    // Mostrar mensagem após envio (o FormSubmit redireciona, então isso é só extra)
+    formContato.addEventListener("formdata", () => {
+      mensagemSucesso.style.display = "block";
+    });
+  }
 });
