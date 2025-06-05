@@ -9,8 +9,11 @@ Este é um projeto simples de site pessoal feito com **HTML**, **CSS** e **JavaS
 
 ## 📸 Preview
 
-> ![Image](https://github.com/user-attachments/assets/b278ca91-31b7-4b16-8323-bfed08599a48)
-> ![Image](https://github.com/user-attachments/assets/59042cb2-e031-4a84-af11-bd23cf8fc5b1)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b278ca91-31b7-4b16-8323-bfed08599a48" width="60%" alt="Preview 1">
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/59042cb2-e031-4a84-af11-bd23cf8fc5b1" width="60%" alt="Preview 2">
+</p>
 
 ---
 
